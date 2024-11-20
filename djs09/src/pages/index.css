@@ -9,6 +9,9 @@ body {
 
 .container {
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nav-bar {
@@ -30,4 +33,40 @@ body {
 
 .user-container {
     margin: 20px;
+}
+
+.properties {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 150px;
+    margin: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 12%) 0 1px 8px;
+}
+
+.footer {
+    width: 100%;
+    background-color: lightcoral;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+.review-card {
+    padding: 10px;
+}
+
+.reviews {
+    display: flex;
+    padding: 10px;
+}
+
+.break {
+    height: 1px;
+    width: 90%;
+    background-color: coral;
 }
