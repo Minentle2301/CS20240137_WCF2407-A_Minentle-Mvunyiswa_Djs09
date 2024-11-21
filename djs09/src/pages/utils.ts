@@ -1,36 +1,44 @@
-const reviewTotalDisplay = document.querySelector('#reviews')
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
+
 import { LoyaltyUser, Permissions } from '../pages/enums.ts'
 import  Review  from '../pages/interfaces.ts'
 
+const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement | null;
+const returningUserDisplay = document.querySelector('#returning-user') as HTMLElement | null;
+const userNameDisplay = document.querySelector('#user') as HTMLElement | null;
+
+// Displays total reviews
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
-    const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
-    reviewTotalDisplay.innerHTML = value.toString() + ' review' + makeMultiple(value) + ' | last reviewed by ' + reviewer + ' ' + iconDisplay    
-}
-
-export function populateUser(isReturning : boolean, userName: string ) {
-    if (isReturning){
-        returningUserDisplay.innerHTML = 'back'
+    const iconDisplay = isLoyalty === LoyaltyUser.GOLD_USER ? '⭐' : '';
+    if (reviewTotalDisplay) {
+        reviewTotalDisplay.innerHTML = `${value} review${makeMultiple(value)} | last reviewed by ${reviewer} ${iconDisplay}`;
     }
-    userNameDisplay.innerHTML = userName
 }
 
-export function showDetails(value: boolean | Permissions, element : HTMLDivElement, price: number) {
+// Populates user details
+export function populateUser(isReturning: boolean, userName: string) {
+    if (returningUserDisplay && isReturning) {
+        returningUserDisplay.innerHTML = 'back';
+    }
+    if (userNameDisplay) {
+        userNameDisplay.innerHTML = userName;
+    }
+}
+
+// Shows additional property details
+export function showDetails(value: boolean | Permissions, element: HTMLDivElement, price: number) {
     if (value) {
-        const priceDisplay = document.createElement('div')
-        priceDisplay.innerHTML = price.toString() + '/night'
-        element.appendChild(priceDisplay)
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = `${price}/night`;
+        element.appendChild(priceDisplay);
     }
 }
 
-export function makeMultiple(value: number) : string {
-    if (value > 1 || value == 0) {
-        return 's'
-    } else return ''
+// Handles pluralization
+export function makeMultiple(value: number): string {
+    return value > 1 || value === 0 ? 's' : '';
 }
 
-export function getTopTwoReviews(reviews : Review[]) : Review[]  {
- const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
- return sortedReviews.slice(0,2)
+// Returns the top two reviews
+export function getTopTwoReviews(reviews: Review[]): Review[] {
+    return reviews.sort((a, b) => b.stars - a.stars).slice(0, 2);
 }
