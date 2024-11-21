@@ -3,10 +3,10 @@
 // all TypeScript weakness flags.
 // : number
 
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from '../pages/utils'
-import { Permissions , LoyaltyUser } from '../pages/enums'
-import  Review, { Property } from '../pages/interfaces'
-import MainProperty from '../pages/classes' 
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
+import { Permissions , LoyaltyUser } from './enums'
+import  Review, { Property } from './interfaces'
+import MainProperty from './classes' 
 
 const propertyContainer = document.querySelector('.properties') as HTMLDivElement | null;
 const reviewContainer = document.querySelector('.reviews') as HTMLDivElement | null;
@@ -33,10 +33,10 @@ const you = {
 
 // Property data
 const properties: Property[] = [
-    { src: '../assets/images/colombia-property.jpg', title: 'Colombian Shack', price: 45, location: { firstLine: 'shack 37', city: 'Bogota', code: 45632, country: 'Colombia' }, contact: [112343823978921, 'marywinkle@gmail.com'], isAvailable: true },
-    { src: '../assets/images/poland-property.jpg', title: 'Polish Cottage', price: 30, location: { firstLine: 'no 23', city: 'Gdansk', code: 343903, country: 'Poland' }, contact: [1298239028490830, 'garydavis@hotmail.com'], isAvailable: false },
-    { src: '../assets/images/london-property.jpg', title: 'London Flat', price: 25, location: { firstLine: 'flat 15', city: 'London', code: 'SW4 5XW', country: 'United Kingdom' }, contact: [34829374892553, 'andyluger@aol.com'], isAvailable: true },
-    { src: '../assets/images/malaysian-hotel.jpeg', title: 'Malia Hotel', price: 35, location: { firstLine: 'Room 4', city: 'Malia', code: 45334, country: 'Malaysia' }, contact: [60349822083, 'lee34@gmail.com'], isAvailable: false },
+    { src: '/djs09/images/colombia-property.jpg', title: 'Colombian Shack', price: 45, location: { firstLine: 'shack 37', city: 'Bogota', code: 45632, country: 'Colombia' }, contact: [112343823978921, 'marywinkle@gmail.com'], isAvailable: true },
+    { src: '/djs09/images/poland-property.jpg', title: 'Polish Cottage', price: 30, location: { firstLine: 'no 23', city: 'Gdansk', code: 343903, country: 'Poland' }, contact: [1298239028490830, 'garydavis@hotmail.com'], isAvailable: false },
+    { src: '/djs09/images/london-property.jpg', title: 'London Flat', price: 25, location: { firstLine: 'flat 15', city: 'London', code: 'SW4 5XW', country: 'United Kingdom' }, contact: [34829374892553, 'andyluger@aol.com'], isAvailable: true },
+    { src: '/djs09/images/malaysian-hotel.jpeg', title: 'Malia Hotel', price: 35, location: { firstLine: 'Room 4', city: 'Malia', code: 45334, country: 'Malaysia' }, contact: [60349822083, 'lee34@gmail.com'], isAvailable: false },
 ];
 
 // Display reviews and user

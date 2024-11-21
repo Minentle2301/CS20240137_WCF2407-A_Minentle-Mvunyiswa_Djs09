@@ -1,6 +1,6 @@
 
-import { LoyaltyUser, Permissions } from '../pages/enums.ts'
-import  Review  from '../pages/interfaces.ts'
+import { LoyaltyUser, Permissions } from './enums.ts'
+import  Review  from './interfaces.ts'
 
 const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement | null;
 const returningUserDisplay = document.querySelector('#returning-user') as HTMLElement | null;

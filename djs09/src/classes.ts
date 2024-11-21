@@ -1,4 +1,4 @@
-import  Review  from '../pages/interfaces'
+import  Review  from './interfaces'
 
 export default class MainProperty {
     src: string
